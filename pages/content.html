@@ -1,0 +1,75 @@
+<div class="col-md-12" >
+	<div class="col-md-2"></div>
+	<div class="col-md-8">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h4><i class="fa fa-list"></i>&nbsp;<b>Content Data</b></h4>
+			</div>
+			<div class="panel-body">
+				<div class="col-md-12" align="right" style="margin-bottom:15px;">
+					<button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal">
+						Add New Data
+					</button>
+				</div>
+				<table class="table table-responsive table-bordered	">
+					<thead style="background:#a7bbe4;color:white">
+						<tr>
+							<th>Username</th>
+							<th>Active</th>
+							<th width="25%">Content</th>
+						</tr>
+					</thead>
+					<tbody ng-init="loadData()">
+						<tr ng-repeat="data in listData">
+							<td>{{data.username}}</td>
+							<td>{{data.active}}</td>
+							<td align="center">
+								<a href="javascript:void(0);" ng-click="deleteData(data.id)" class="btn btn-danger">Delete</a>
+								<a href="javascript:void(0);" data-toggle="modal" data-target="#myModal"	 ng-click="editData(data.id)" class="btn btn-info">Edit</a>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div align="right" class="panel-footer">copyright 2016</div>
+		</div>
+	</div>
+	<div class="col-md-2"></div>
+</div>
+
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+				<h4 class="modal-title" id="myModalLabel"><i class="fa fa-edit"></i>&nbsp;<b>Process Data</b></h4>
+			</div>
+			<div class="modal-body">
+				<div class="form-group" style="display:none">
+					<label for="email">ID:</label>
+					<input ng-model="id" type="text" class="form-control">
+				</div>
+				<div class="form-group">
+					<label for="email">Username:</label>
+					<input ng-model="username" type="text" class="form-control required" >
+				</div>
+				<div class="form-group">
+					<label for="email">Password:</label>
+					<input ng-model="password" type="password" class="form-control required">
+				</div>
+				<div class="form-group">
+					<label for="email">Active:</label>
+					<select class="form-control required" ng-model="active"  ng-options="option.name for option in options" >
+					</select>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+				<button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="processData(category)">Save changes</button>
+			</div>
+		</div>
+	</div>
+</div>
