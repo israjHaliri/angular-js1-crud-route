@@ -5,71 +5,11 @@
 	<link rel="stylesheet" type="text/css" href="assets/css/bootstrap.css"/>
 	<link rel="stylesheet" type="text/css" href="assets/css/font-awesome.css"/>
 </head>
-<body ng-app="myApp" ng-controller="userController">
-	<div class="col-md-12" >
-		<div class="col-md-2"></div>
-		<div class="col-md-8">
-			<div class="panel panel-default">
-				<div class="panel-heading"><h4><i class="fa fa-list"></i>&nbsp;<b>Content Data</b></h4></div>
-				<div class="panel-body">
-					<table class="table table-responsive table-bordered	">
-						<thead style="background:#a7bbe4;color:white">
-							<tr>
-								<th>Username</th>
-								<th>Active</th>
-								<th width="20%">Content</th>
-							</tr>
-						</thead>
-						<tbody ng-init="loadDataUser()">
-							<tr ng-repeat="data in listData">
-								<td>{{data.username}}</td>
-								<td>{{data.active}}</td>
-								<td align="center">
-								<a href="javascript:void(0);" ng-click="deleteDataUser(data.id)" class="btn btn-danger">Delete</a>
-								<a href="javascript:void(0);" ng-click="editDataUser(data.id)" class="btn btn-info">Edit</a>
-								</td>
-							</tr>
-						</tbody>
-					</table>
-				</div>
-				<div align="right" class="panel-footer">copyright 2016</div>
-			</div>
-		</div>
-		<div class="col-md-2"></div>
-	</div>
-	<div class="col-md-12" >
-		<div class="col-md-2"></div>
-		<div class="col-md-8">
-			<div class="panel panel-default">
-				<div class="panel-heading"><h4><i class="fa fa-edit"></i>&nbsp;<b>Process Data</b></h4></div>
-				<div class="panel-body">
-					<div class="form-group">
-						<label for="email">ID:</label>
-						<input ng-model="id" type="text" class="form-control">
-					</div>
-					<div class="form-group">
-						<label for="email">Username:</label>
-						<input ng-model="username" type="text" class="form-control">
-					</div>
-					<div class="form-group">
-						<label for="email">Password:</label>
-						<input ng-model="password" type="password" class="form-control">
-					</div>
-					<div class="form-group">
-						<label for="email">Active:</label>
-						<select class="form-control" ng-model="active" required="">
-							<option value="1">Active</option>
-							<option value="0">Not active</option>
-						</select>
-					</div>
-					<button ng-click="processDataUser2()" type="submit" class="btn btn-default">Submit</button>
-				</div>
-				<div align="right" class="panel-footer">copyright 2016</div>
-			</div>
-		</div>
-		<div class="col-md-2"></div>
-	</div>
+<body ng-app="myApp">
+      <div style="padding:15px;" ng-view></div>
 </body>
 <script type="text/javascript" src="assets/js/angular.min.js"></script>
+<script type="text/javascript" src="assets/js/angular-route.min.js"></script>
 <script type="text/javascript" src="assets/js/app/app.js"></script>
+<script type="text/javascript" src="assets/js/app/controller/content-controller.js"></script>
 </html>
